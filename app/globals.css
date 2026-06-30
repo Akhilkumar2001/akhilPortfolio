@@ -1,0 +1,194 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* ── Light theme ───────────────────────────── */
+    --background: 240 20% 99%;
+    --foreground: 240 10% 8%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 8%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 8%;
+
+    --primary: 252 100% 68%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 240 6% 95%;
+    --secondary-foreground: 240 10% 12%;
+
+    --muted: 240 6% 95%;
+    --muted-foreground: 240 5% 42%;
+
+    --accent: 252 90% 96%;
+    --accent-foreground: 252 60% 40%;
+
+    --destructive: 350 84% 56%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 240 10% 90%;
+    --input: 240 10% 88%;
+    --ring: 252 100% 68%;
+
+    --radius: 0.9rem;
+
+    --glass-bg: 0 0% 100% / 0.6;
+    --glass-border: 240 10% 88% / 0.7;
+  }
+
+  .dark {
+    /* ── Dark theme ────────────────────────────── */
+    --background: 240 30% 4%;
+    --foreground: 0 0% 98%;
+
+    --card: 240 24% 7%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 240 28% 6%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 252 100% 71%;
+    --primary-foreground: 240 30% 6%;
+
+    --secondary: 240 14% 14%;
+    --secondary-foreground: 0 0% 95%;
+
+    --muted: 240 14% 12%;
+    --muted-foreground: 240 6% 60%;
+
+    --accent: 252 40% 18%;
+    --accent-foreground: 252 100% 85%;
+
+    --destructive: 350 80% 58%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 240 14% 16%;
+    --input: 240 14% 18%;
+    --ring: 252 100% 71%;
+
+    --glass-bg: 240 24% 9% / 0.5;
+    --glass-border: 0 0% 100% / 0.08;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    overflow-x: hidden;
+  }
+  /* When Lenis smooth scroll is active, let it drive scrolling */
+  html.lenis,
+  html.lenis body {
+    height: auto;
+  }
+  .lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+  }
+  ::selection {
+    background: hsl(var(--primary) / 0.3);
+  }
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--muted-foreground) / 0.3);
+    border-radius: 9999px;
+    border: 2px solid transparent;
+    background-clip: content-box;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--primary) / 0.5);
+    background-clip: content-box;
+  }
+}
+
+@layer components {
+  .glass {
+    background: hsl(var(--glass-bg));
+    backdrop-filter: blur(16px) saturate(160%);
+    -webkit-backdrop-filter: blur(16px) saturate(160%);
+    border: 1px solid hsl(var(--glass-border));
+  }
+
+  .gradient-text {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(120deg, #7c5cff, #9c88ff 40%, #ff6584);
+  }
+
+  .gradient-text-animated {
+    @apply bg-clip-text text-transparent animate-gradient-x;
+    background-image: linear-gradient(120deg, #7c5cff, #22d3ee, #ff6584, #7c5cff);
+    background-size: 300% 300%;
+  }
+
+  .section-label {
+    @apply inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.25em] text-primary;
+  }
+
+  .card-hover {
+    @apply transition-all duration-300 hover:-translate-y-1;
+  }
+
+  .glow-ring {
+    box-shadow: 0 0 0 1px hsl(var(--primary) / 0.2),
+      0 0 40px -10px hsl(var(--primary) / 0.4);
+  }
+
+  /* Animated conic border for premium cards */
+  .border-gradient {
+    position: relative;
+    background-clip: padding-box;
+  }
+  .border-gradient::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(135deg, hsl(var(--primary) / 0.5), transparent 50%, #ff658480);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .mask-fade-x {
+    -webkit-mask-image: linear-gradient(to right, transparent, #000 12%, #000 88%, transparent);
+    mask-image: linear-gradient(to right, transparent, #000 12%, #000 88%, transparent);
+  }
+  .perspective {
+    perspective: 1000px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

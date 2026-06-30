@@ -1,0 +1,67 @@
+import type { Experience } from "@/lib/types";
+
+export const experiences: Experience[] = [
+  {
+    company: "Cyberbells",
+    role: "Senior Software Engineer · MERN Stack Developer",
+    location: "Chandigarh, India",
+    period: "Apr 2024 — Present",
+    type: "Full-time",
+    accent: "#7c5cff",
+    current: true,
+    highlights: [
+      "Led development across 2 web apps and 3 mobile applications from scratch",
+      "Built full-stack products using the MERN stack end-to-end",
+      "Owned client communication, requirement analysis and delivery",
+      "Mentored junior developers and enforced code-quality standards",
+      "Shipped scalable, production-ready solutions on tight timelines",
+    ],
+    tags: ["React Native ×3", "MERN Web ×2", "Team Lead"],
+  },
+  {
+    company: "Techgrow Software Pvt. Ltd",
+    role: "React Developer",
+    location: "Mohali, India",
+    period: "May 2023 — Apr 2024",
+    type: "Full-time",
+    accent: "#9c88ff",
+    current: false,
+    highlights: [
+      "Delivered 4–5 real-world client projects end-to-end",
+      "Introduced Next.js, Tailwind CSS and AI tooling into the workflow",
+      "Improved development speed and codebase scalability",
+      "Collaborated closely with cross-functional teams",
+    ],
+    tags: ["React Apps ×2", "React Native ×1", "Next.js"],
+  },
+  {
+    company: "WebGarh Solutions",
+    role: "React Developer",
+    location: "Punjab, India",
+    period: "Dec 2022 — May 2023",
+    type: "Full-time",
+    accent: "#ff6584",
+    current: false,
+    highlights: [
+      "Built reusable, responsive UI component libraries",
+      "Worked on client-facing web applications",
+      "Refined component architecture patterns",
+    ],
+    tags: ["UI Systems", "Responsive"],
+  },
+  {
+    company: "Omninos Solutions",
+    role: "React.js Intern",
+    location: "Mohali, India",
+    period: "Aug 2022 — Dec 2022",
+    type: "Internship",
+    accent: "#43e97b",
+    current: false,
+    highlights: [
+      "Learned frontend architecture and React fundamentals",
+      "Built interactive UI components and interfaces",
+      "Gained hands-on, real-world development experience",
+    ],
+    tags: ["Foundations", "React"],
+  },
+];
