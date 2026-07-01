@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { contactSchema } from "@/lib/validations";
+import { sendFormEmail } from "@/lib/email";
 
 export async function POST(request: Request) {
   try {
@@ -13,10 +14,24 @@ export async function POST(request: Request) {
       );
     }
 
-    // TODO: wire up real delivery — e.g. Resend, Nodemailer, or a DB.
-    //   await resend.emails.send({ ... })
-    // For now we log server-side and return success.
-    console.log("[contact] new message", parsed.data);
+    const { name, email, message } = parsed.data;
+
+    const result = await sendFormEmail({
+      subject: `New contact message from ${name}`,
+      replyTo: email,
+      rows: [
+        ["Name", name],
+        ["Email", email],
+        ["Message", message],
+      ],
+    });
+
+    if (!result.ok && !result.skipped) {
+      return NextResponse.json(
+        { ok: false, error: "Failed to send" },
+        { status: 502 }
+      );
+    }
 
     return NextResponse.json({ ok: true });
   } catch {
