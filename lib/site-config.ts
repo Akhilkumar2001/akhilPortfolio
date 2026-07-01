@@ -47,6 +47,9 @@ export const siteConfig = {
   // ── Resume (drop your PDF at /public/akhil-kumar-resume.pdf) ─
   resumeUrl: "/akhil-kumar-resume.pdf", // TODO add the file
 
+  // ── Profile photo (at /public/profile.png) ─
+  photo: "/profile.png",
+
   // ── Headline stats ─────────────────────────────────────────
   stats: [
     { value: 3, suffix: "+", label: "Years Experience" },

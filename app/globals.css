@@ -82,10 +82,14 @@
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
+    /* Clip horizontal overflow at the root (the page scrolls on <html>).
+       `clip` doesn't create a scroll container, so sticky/smooth-scroll stay intact. */
+    overflow-x: clip;
   }
   body {
     @apply bg-background text-foreground font-sans antialiased;
-    overflow-x: hidden;
+    overflow-x: clip;
+    width: 100%;
   }
   /* When Lenis smooth scroll is active, let it drive scrolling */
   html.lenis,

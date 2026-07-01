@@ -8,7 +8,7 @@ import { experiences } from "@/lib/data/experience";
 
 export function Experience() {
   return (
-    <section id="experience" className="relative py-24 sm:py-32">
+    <section id="experience" className="relative overflow-hidden py-24 sm:py-32">
       <div
         aria-hidden
         className="pointer-events-none absolute left-0 top-1/3 h-96 w-96 rounded-full bg-brand-pink/5 blur-[120px]"

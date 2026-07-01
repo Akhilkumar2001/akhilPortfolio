@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import {
@@ -49,9 +50,8 @@ export default async function CaseStudyPage({
   if (!project) notFound();
 
   const meta = [
-    { label: "Client", value: project.client },
+    { label: "Industry", value: project.client },
     { label: "Year", value: project.year },
-    { label: "Timeline", value: project.timeline },
     { label: "Category", value: project.category },
   ];
 
@@ -120,18 +120,29 @@ export default async function CaseStudyPage({
           }}
         >
           <div className="absolute inset-0 bg-grid-pattern bg-[size:40px_40px] opacity-[0.06]" />
-          <div className="absolute inset-x-10 bottom-0 top-12 rounded-t-2xl border border-white/10 bg-background/50 backdrop-blur-sm">
-            <div className="flex items-center gap-1.5 border-b border-white/10 px-4 py-3">
-              <span className="h-2.5 w-2.5 rounded-full bg-red-400/70" />
-              <span className="h-2.5 w-2.5 rounded-full bg-amber-400/70" />
-              <span className="h-2.5 w-2.5 rounded-full bg-emerald-400/70" />
+          {project.image ? (
+            <Image
+              src={project.image}
+              alt={`${project.title} preview`}
+              fill
+              priority
+              sizes="(max-width: 1024px) 100vw, 1024px"
+              className="object-cover object-top"
+            />
+          ) : (
+            <div className="absolute inset-x-10 bottom-0 top-12 rounded-t-2xl border border-white/10 bg-background/50 backdrop-blur-sm">
+              <div className="flex items-center gap-1.5 border-b border-white/10 px-4 py-3">
+                <span className="h-2.5 w-2.5 rounded-full bg-red-400/70" />
+                <span className="h-2.5 w-2.5 rounded-full bg-amber-400/70" />
+                <span className="h-2.5 w-2.5 rounded-full bg-emerald-400/70" />
+              </div>
             </div>
-          </div>
+          )}
         </div>
       </div>
 
       {/* Meta + metrics */}
-      <div className="container mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="container mt-12 grid gap-6 sm:grid-cols-3">
         {meta.map((m) => (
           <div key={m.label} className="glass rounded-2xl p-5">
             <p className="text-xs uppercase tracking-wider text-muted-foreground">

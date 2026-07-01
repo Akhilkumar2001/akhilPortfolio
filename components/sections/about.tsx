@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Code2, Rocket, Users, Sparkles } from "lucide-react";
 import { SectionHeading } from "@/components/shared/section-heading";
 import { Reveal, StaggerGroup, StaggerItem } from "@/components/animations/reveal";
@@ -48,6 +49,39 @@ export function About() {
 
         <div className="mt-16 grid gap-12 lg:grid-cols-2 lg:gap-16">
           <Reveal direction="right">
+            {/* Profile */}
+            <div className="mb-8 flex items-center gap-5">
+              <div className="relative shrink-0">
+                <div
+                  aria-hidden
+                  className="absolute -inset-1 rounded-3xl bg-[linear-gradient(135deg,#7c5cff,#ff6584)] opacity-70 blur-md"
+                />
+                <div className="relative h-28 w-24 overflow-hidden rounded-3xl border border-white/10 bg-muted sm:h-32 sm:w-28">
+                  <Image
+                    src={siteConfig.photo}
+                    alt={siteConfig.name}
+                    fill
+                    sizes="120px"
+                    className="object-cover"
+                  />
+                </div>
+                <span className="absolute -bottom-1 -right-1 flex h-6 items-center gap-1 rounded-full border border-background bg-emerald-500 px-2 text-[10px] font-semibold text-white">
+                  <span className="h-1.5 w-1.5 rounded-full bg-white" /> Open
+                </span>
+              </div>
+              <div>
+                <p className="font-display text-xl font-bold">
+                  {siteConfig.name}
+                </p>
+                <p className="text-sm text-muted-foreground">
+                  {siteConfig.role}
+                </p>
+                <p className="mt-1 text-xs text-muted-foreground">
+                  {siteConfig.location} · {siteConfig.timezone}
+                </p>
+              </div>
+            </div>
+
             <h3 className="font-display text-2xl font-bold">
               I build things that{" "}
               <span className="gradient-text">people love to use.</span>
@@ -69,7 +103,8 @@ export function About() {
                 <span className="font-semibold text-primary">
                   Cyberbells, Chandigarh
                 </span>
-                , leading development across 2 web apps and 3 mobile apps.
+                , delivering 15+ web &amp; mobile products across retail,
+                language-tech and SaaS.
               </p>
               <p>
                 My focus today is{" "}

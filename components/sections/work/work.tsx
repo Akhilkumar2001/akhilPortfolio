@@ -28,10 +28,10 @@ export function Work() {
   }, [category, query]);
 
   return (
-    <section id="work" className="relative py-24 sm:py-32">
+    <section id="work" className="relative overflow-hidden py-24 sm:py-32">
       <div
         aria-hidden
-        className="pointer-events-none absolute left-1/2 top-0 h-96 w-[40rem] -translate-x-1/2 rounded-full bg-primary/5 blur-[120px]"
+        className="pointer-events-none absolute left-1/2 top-0 h-96 w-[40rem] max-w-full -translate-x-1/2 rounded-full bg-primary/5 blur-[120px]"
       />
       <div className="container">
         <SectionHeading

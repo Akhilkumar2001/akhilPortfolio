@@ -10,13 +10,13 @@ export const experiences: Experience[] = [
     accent: "#7c5cff",
     current: true,
     highlights: [
-      "Led development across 2 web apps and 3 mobile applications from scratch",
+      "Delivered 15+ web & mobile products across retail, language-tech and SaaS",
       "Built full-stack products using the MERN stack end-to-end",
       "Owned client communication, requirement analysis and delivery",
       "Mentored junior developers and enforced code-quality standards",
       "Shipped scalable, production-ready solutions on tight timelines",
     ],
-    tags: ["React Native ×3", "MERN Web ×2", "Team Lead"],
+    tags: ["15+ Products", "Web + Mobile", "Team Lead"],
   },
   {
     company: "Techgrow Software Pvt. Ltd",

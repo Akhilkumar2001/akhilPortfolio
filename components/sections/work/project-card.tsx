@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowUpRight, ExternalLink, Github } from "lucide-react";
@@ -25,22 +26,33 @@ export function ProjectCard({ project }: { project: Project }) {
           }}
         >
           <div className="absolute inset-0 bg-grid-pattern bg-[size:28px_28px] opacity-[0.08]" />
-          {/* Device mockup */}
-          <div className="absolute inset-x-8 bottom-0 top-8 rounded-t-xl border border-white/10 bg-background/60 backdrop-blur-sm">
-            <div className="flex items-center gap-1.5 border-b border-white/10 px-3 py-2">
-              <span className="h-2 w-2 rounded-full bg-red-400/70" />
-              <span className="h-2 w-2 rounded-full bg-amber-400/70" />
-              <span className="h-2 w-2 rounded-full bg-emerald-400/70" />
+          {project.image ? (
+            /* Real screenshot */
+            <Image
+              src={project.image}
+              alt={`${project.title} preview`}
+              fill
+              sizes="(max-width: 768px) 100vw, 33vw"
+              className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
+            />
+          ) : (
+            /* Device mockup fallback */
+            <div className="absolute inset-x-8 bottom-0 top-8 rounded-t-xl border border-white/10 bg-background/60 backdrop-blur-sm">
+              <div className="flex items-center gap-1.5 border-b border-white/10 px-3 py-2">
+                <span className="h-2 w-2 rounded-full bg-red-400/70" />
+                <span className="h-2 w-2 rounded-full bg-amber-400/70" />
+                <span className="h-2 w-2 rounded-full bg-emerald-400/70" />
+              </div>
+              <div className="space-y-2 p-3">
+                <div className="h-2 w-2/3 rounded-full bg-foreground/10" />
+                <div className="h-2 w-1/2 rounded-full bg-foreground/10" />
+                <div
+                  className="h-8 w-full rounded-lg"
+                  style={{ backgroundColor: `${project.accent}22` }}
+                />
+              </div>
             </div>
-            <div className="space-y-2 p-3">
-              <div className="h-2 w-2/3 rounded-full bg-foreground/10" />
-              <div className="h-2 w-1/2 rounded-full bg-foreground/10" />
-              <div
-                className="h-8 w-full rounded-lg"
-                style={{ backgroundColor: `${project.accent}22` }}
-              />
-            </div>
-          </div>
+          )}
           <span
             className="absolute left-4 top-4 rounded-full px-3 py-1 text-xs font-semibold backdrop-blur"
             style={{

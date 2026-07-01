@@ -70,7 +70,7 @@ export function Booking() {
   }
 
   return (
-    <section id="booking" className="relative py-24 sm:py-32">
+    <section id="booking" className="relative overflow-hidden py-24 sm:py-32">
       <div
         aria-hidden
         className="pointer-events-none absolute right-1/4 top-0 h-96 w-96 rounded-full bg-brand-pink/10 blur-[130px]"

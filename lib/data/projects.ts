@@ -2,190 +2,440 @@ import type { Project } from "@/lib/types";
 
 export const projects: Project[] = [
   {
-    slug: "ecommerce-mobile-app",
-    title: "E-Commerce Mobile App",
-    category: "Mobile",
-    tagline: "A full-featured shopping experience for iOS & Android",
+    slug: "church-translator",
+    title: "ChurchTranslator",
+    category: "AI",
+    tagline: "Real-time voice-to-voice translation for live events",
     description:
-      "Cross-platform e-commerce app built with React Native — product catalog, cart, order tracking, and seamless Razorpay payment integration with a custom checkout flow.",
-    client: "Retail Startup",
+      "A real-time voice-to-voice translation platform on mobile and web. It translates live speech into multiple languages instantly, letting people follow conversations, sermons and events in their preferred language — enabling seamless communication across countries and languages.",
+    client: "Language Tech",
     year: "2025",
-    timeline: "12 weeks",
     featured: true,
-    tech: ["React Native", "Node.js", "MongoDB", "Redux Toolkit", "Razorpay"],
+    tech: ["React.js", "React Native", "Node.js", "MongoDB", "Python"],
     accent: "#7c5cff",
-    liveUrl: "#",
-    githubUrl: "#",
+    liveUrl: "http://churchtranslator.com/",
     metrics: [
-      { label: "Checkout conversion", value: "+34%" },
-      { label: "App store rating", value: "4.8★" },
-      { label: "Cold start", value: "<1.2s" },
+      { label: "Mode", value: "Voice → Voice" },
+      { label: "Platforms", value: "Web + Mobile" },
+      { label: "Languages", value: "Multi" },
     ],
     features: [
-      "Real-time cart sync across devices",
-      "One-tap Razorpay checkout",
-      "Order tracking with push notifications",
-      "Offline-first product browsing",
+      "Instant live speech translation",
+      "Multi-language audio output",
+      "Mobile and web experience",
+      "Built for sermons, events & conversations",
     ],
     challenge:
-      "The client needed a performant native experience with a complex payment flow while keeping a single codebase for both platforms.",
+      "Delivering low-latency voice translation that feels live during sermons and events, across both mobile and web.",
     solution:
-      "Architected a Redux Toolkit state layer with optimistic updates and an offline cache, integrated Razorpay's native SDK, and reduced cold start by lazy-loading non-critical screens.",
+      "Built a React Native + React platform on a Node.js backend with a Python translation pipeline, streaming translated audio to each listener in their chosen language.",
   },
   {
-    slug: "realtime-chat-platform",
-    title: "Real-time Chat Platform",
-    category: "Web",
-    tagline: "Scalable messaging with rooms, presence & history",
+    slug: "onelinguo",
+    title: "Onelinguo",
+    category: "AI",
+    tagline: "Live voice translation for global communication",
     description:
-      "Full-stack chat platform powered by Socket.IO — supports rooms, typing indicators, presence, and persistent message history with infinite scroll.",
-    client: "SaaS Product",
-    year: "2024",
-    timeline: "8 weeks",
-    featured: true,
-    tech: ["React.js", "Node.js", "Socket.IO", "MongoDB", "Express"],
-    accent: "#ff6584",
-    liveUrl: "#",
-    githubUrl: "#",
-    metrics: [
-      { label: "Concurrent users", value: "5k+" },
-      { label: "Message latency", value: "<80ms" },
-      { label: "Uptime", value: "99.9%" },
-    ],
-    features: [
-      "Sub-100ms real-time delivery",
-      "Typing & presence indicators",
-      "Infinite-scroll message history",
-      "Horizontal scaling with Redis adapter",
-    ],
-    challenge:
-      "Maintaining low-latency delivery and presence accuracy as concurrent connections scaled past a single server instance.",
-    solution:
-      "Introduced a Redis pub/sub adapter for Socket.IO to broadcast across instances, paginated history with cursor-based queries, and debounced presence events.",
-  },
-  {
-    slug: "healthcare-management-system",
-    title: "Healthcare Management System",
-    category: "Web",
-    tagline: "End-to-end hospital operations dashboard",
-    description:
-      "A complete hospital management dashboard for appointments, patient records, and doctor scheduling — built on the MERN stack with role-based access control.",
-    client: "Healthcare Provider",
-    year: "2024",
-    timeline: "16 weeks",
-    featured: true,
-    tech: ["React.js", "Express.js", "MongoDB", "Redux Toolkit", "Tailwind CSS"],
-    accent: "#43e97b",
-    liveUrl: "#",
-    githubUrl: "#",
-    metrics: [
-      { label: "Admin time saved", value: "-40%" },
-      { label: "Records managed", value: "20k+" },
-      { label: "Roles supported", value: "6" },
-    ],
-    features: [
-      "Role-based access (admin, doctor, staff)",
-      "Appointment scheduling with conflicts detection",
-      "Patient records & history vault",
-      "Analytics dashboard with exportable reports",
-    ],
-    challenge:
-      "Different staff roles needed tightly-scoped access to sensitive patient data without slowing down day-to-day workflows.",
-    solution:
-      "Built a granular RBAC layer on the API, server-side filtered queries per role, and a fast, keyboard-friendly scheduling UI with conflict detection.",
-  },
-  {
-    slug: "service-booking-app",
-    title: "On-Demand Service Booking App",
-    category: "Mobile",
-    tagline: "Uber-style provider matching with live tracking",
-    description:
-      "On-demand service booking app with provider matching, real-time location tracking, and in-app payments via Stripe.",
-    client: "Marketplace Startup",
+      "A live voice-to-voice translation platform designed for global communication. It translates spoken content in real time and delivers the translated audio in the user's selected language, so people from different countries can understand each other effortlessly.",
+    client: "Language Tech",
     year: "2025",
-    timeline: "14 weeks",
-    featured: false,
-    tech: ["React Native", "Node.js", "MongoDB", "Stripe", "Socket.IO"],
-    accent: "#f59e0b",
-    liveUrl: "#",
-    githubUrl: "#",
-    metrics: [
-      { label: "Match time", value: "<30s" },
-      { label: "Bookings/mo", value: "2k+" },
-      { label: "Payment success", value: "98%" },
-    ],
-    features: [
-      "Geo-based provider matching",
-      "Live tracking on map",
-      "In-app Stripe payments & payouts",
-      "Ratings & review system",
-    ],
-    challenge:
-      "Matching customers to the nearest available provider in real time while keeping location updates battery-efficient.",
-    solution:
-      "Used geospatial Mongo queries with throttled location pings over Socket.IO and a matching queue that balanced proximity with provider rating.",
-  },
-  {
-    slug: "nextjs-saas-dashboard",
-    title: "Next.js SaaS Dashboard",
-    category: "SaaS",
-    tagline: "Multi-tenant admin with analytics & billing",
-    description:
-      "Multi-tenant SaaS admin dashboard with role-based access, analytics, and subscription management built on Next.js and TypeScript.",
-    client: "B2B SaaS",
-    year: "2025",
-    timeline: "10 weeks",
     featured: true,
-    tech: ["Next.js", "TypeScript", "MongoDB", "Tailwind CSS", "Stripe"],
-    accent: "#9c88ff",
-    liveUrl: "#",
-    githubUrl: "#",
-    metrics: [
-      { label: "Lighthouse", value: "98" },
-      { label: "Tenants", value: "120+" },
-      { label: "TTI", value: "<1.5s" },
-    ],
-    features: [
-      "Multi-tenant data isolation",
-      "Stripe subscription & billing portal",
-      "Server Components for fast loads",
-      "Usage analytics with charts",
-    ],
-    challenge:
-      "Delivering a fast, SEO-friendly dashboard while strictly isolating each tenant's data and billing.",
-    solution:
-      "Leveraged Next.js Server Components and edge caching, scoped every query by tenant ID, and wired Stripe's billing portal for self-serve subscriptions.",
-  },
-  {
-    slug: "social-networking-app",
-    title: "Social Networking App",
-    category: "Mobile",
-    tagline: "Feed, stories, follows & real-time notifications",
-    description:
-      "Feature-rich social networking app with posts, stories, a follow system, and real-time notifications backed by Redis.",
-    client: "Consumer App",
-    year: "2024",
-    timeline: "18 weeks",
-    featured: false,
-    tech: ["React Native", "Node.js", "MongoDB", "Redis", "Socket.IO"],
+    tech: ["React.js", "React Native", "Node.js", "MongoDB", "Python"],
     accent: "#22d3ee",
-    liveUrl: "#",
-    githubUrl: "#",
+    liveUrl: "http://onelinguo.com/",
     metrics: [
-      { label: "Feed load", value: "<400ms" },
-      { label: "DAU", value: "8k+" },
-      { label: "Push delivery", value: "99%" },
+      { label: "Mode", value: "Real-time" },
+      { label: "Platforms", value: "Web + Mobile" },
+      { label: "Reach", value: "Global" },
     ],
     features: [
-      "Personalized feed ranking",
-      "24h ephemeral stories",
-      "Follow / unfollow graph",
-      "Real-time notifications via Redis",
+      "Real-time spoken-content translation",
+      "Audio delivered in the user's language",
+      "Cross-country communication",
+      "Shared codebase across web & mobile",
     ],
     challenge:
-      "Serving a personalized, fast feed while handling a rapidly growing social graph and notification fan-out.",
+      "Enabling natural cross-language conversation in real time without breaking the flow of speech.",
     solution:
-      "Cached hot feeds and counters in Redis, precomputed notification fan-out on write, and paginated the feed with cursor-based ranking.",
+      "Engineered a streaming translation flow with a Python language pipeline behind a Node.js API, surfaced through polished React and React Native clients.",
+  },
+  {
+    slug: "talkbrush",
+    title: "TalkBrush",
+    category: "Mobile",
+    tagline: "Real-time voice translation, in your pocket",
+    description:
+      "A real-time voice translation app that converts spoken conversations into the listener's preferred language. It translates and delivers speech instantly, helping users communicate naturally across language barriers. Published on the Google Play Store.",
+    client: "Language Tech",
+    year: "2025",
+    featured: true,
+    tech: ["React Native", "Node.js", "MongoDB", "Python", "React.js"],
+    accent: "#ff6584",
+    liveUrl:
+      "https://play.google.com/store/apps/details?id=com.talkbrush&hl=en_IN",
+    metrics: [
+      { label: "Platform", value: "Android" },
+      { label: "Mode", value: "Voice translation" },
+      { label: "Status", value: "On Play Store" },
+    ],
+    features: [
+      "Instant conversation translation",
+      "Listener's-language audio output",
+      "Natural cross-language chat",
+      "Published native Android app",
+    ],
+    challenge:
+      "Packaging a real-time translation experience into a smooth, store-ready mobile app.",
+    solution:
+      "Shipped a React Native app backed by a Node.js + Python translation service, optimised for low-latency audio and a clean conversational UI.",
+  },
+  {
+    slug: "wolf-dashboard",
+    title: "Wolf Dashboard",
+    category: "SaaS",
+    tagline: "Sales performance & dynamic commission engine",
+    description:
+      "A dashboard to manage store sales performance, calculate employee commissions dynamically from sales data, and track targets on a fortnightly basis. It provides reporting, performance monitoring, target management and commission calculations across multiple store locations.",
+    client: "Retail · Australia",
+    year: "2025",
+    featured: true,
+    tech: ["React.js", "Node.js", "MongoDB", "Express.js"],
+    accent: "#9c88ff",
+    liveUrl: "http://170.64.177.174/",
+    metrics: [
+      { label: "Engine", value: "Dynamic commissions" },
+      { label: "Targets", value: "Fortnightly" },
+      { label: "Scope", value: "Multi-store" },
+    ],
+    features: [
+      "Dynamic commission calculation from sales data",
+      "Fortnightly target setting & tracking",
+      "Performance monitoring & reporting",
+      "Multi-store location support",
+    ],
+    challenge:
+      "Commission rules differ per store and period, and must stay accurate as sales data and targets change every fortnight.",
+    solution:
+      "Built a configurable commission engine on a MERN stack with fortnightly target tracking and reporting dashboards across all store locations.",
+  },
+  {
+    slug: "ballarat-store",
+    title: "Ballarat Store",
+    category: "SaaS",
+    tagline: "Store sales & commission management dashboard",
+    description:
+      "A store management platform for sales performance, dynamic commission calculation from sales data, and fortnightly target tracking — with reporting, performance monitoring and commission management across multiple locations.",
+    client: "Retail · Australia",
+    year: "2024",
+    featured: false,
+    tech: ["React.js", "Node.js", "MongoDB", "Express.js"],
+    accent: "#43e97b",
+    liveUrl: "http://170.64.175.132/",
+    metrics: [
+      { label: "Engine", value: "Commissions" },
+      { label: "Targets", value: "Fortnightly" },
+      { label: "Reporting", value: "Built-in" },
+    ],
+    features: [
+      "Sales performance tracking",
+      "Dynamic commission calculation",
+      "Fortnightly target management",
+      "Reporting & performance monitoring",
+    ],
+    challenge:
+      "Giving store managers a clear, real-time view of performance and accurate commissions without manual spreadsheets.",
+    solution:
+      "Delivered a MERN dashboard that automates commission math and target tracking, with reporting that managers can act on.",
+  },
+  {
+    slug: "cyberpulse",
+    title: "CyberPulse",
+    category: "SaaS",
+    tagline: "In-house platform across web & mobile",
+    description:
+      "An in-house CyberPulse product spanning web and mobile, built with the MERN stack and React Native. A full-stack platform delivered end-to-end by the Cyberbells team.",
+    client: "Cyberbells · In-House",
+    year: "2024",
+    featured: true,
+    tech: ["React.js", "React Native", "Node.js", "MongoDB"],
+    accent: "#7c5cff",
+    liveUrl: "https://cyberpulse360.com/",
+    metrics: [
+      { label: "Type", value: "In-House" },
+      { label: "Platforms", value: "Web + Mobile" },
+      { label: "Stack", value: "MERN + RN" },
+    ],
+    features: [
+      "Full-stack web application",
+      "Companion mobile app",
+      "Shared MERN backend",
+      "End-to-end in-house delivery",
+    ],
+    challenge:
+      "Building and maintaining a cohesive product across web and mobile from a single backend.",
+    solution:
+      "Architected a shared Node.js/MongoDB backend serving both a React web app and a React Native mobile app for a consistent experience.",
+  },
+  {
+    slug: "juco-pipeline",
+    title: "Juco Pipeline",
+    category: "Web",
+    tagline: "Pipeline management web platform",
+    description:
+      "A web platform for managing pipeline operations and data, built with the MERN stack. Currently in active development.",
+    client: "Industrial",
+    year: "2026",
+    featured: false,
+    tech: ["React.js", "Node.js", "MongoDB", "Express.js"],
+    accent: "#f59e0b",
+    liveUrl: "https://jucopipeline.ai/",
+    metrics: [
+      { label: "Domain", value: "Pipeline ops" },
+      { label: "Stack", value: "MERN" },
+      { label: "Type", value: "Web app" },
+    ],
+    features: [
+      "Operational data management",
+      "MERN web application",
+      "Reporting & tracking",
+      "Built for scale",
+    ],
+    challenge:
+      "Turning complex pipeline operations into a clear, manageable web workflow.",
+    solution:
+      "Developing a MERN web application focused on structured data management and an intuitive operator workflow.",
+  },
+  {
+    slug: "onepulse-work",
+    title: "OnePulseWork",
+    category: "SaaS",
+    tagline: "Work & operations management platform",
+    description:
+      "A work management platform spanning web and mobile, built with the MERN stack and React Native to streamline day-to-day operations.",
+    client: "HR / Work Tech",
+    year: "2026",
+    featured: false,
+    tech: ["React.js", "React Native", "Node.js", "MongoDB"],
+    accent: "#22d3ee",
+    liveUrl: "https://onepulsework.com/",
+    metrics: [
+      { label: "Platforms", value: "Web + Mobile" },
+      { label: "Stack", value: "MERN + RN" },
+      { label: "Focus", value: "Operations" },
+    ],
+    features: [
+      "Web & mobile experience",
+      "Operations management",
+      "Shared MERN backend",
+      "Built for teams",
+    ],
+    challenge:
+      "Unifying work management across desktop and on-the-go mobile use.",
+    solution:
+      "Building a cross-platform MERN + React Native product with a shared backend for consistent data everywhere.",
+  },
+  {
+    slug: "society-smart-hub",
+    title: "SocietySmartHub",
+    category: "SaaS",
+    tagline: "Smart society & community management",
+    description:
+      "A community management platform for residential societies, spanning web and mobile. Built with the MERN stack and React Native to handle society operations end-to-end.",
+    client: "PropTech",
+    year: "2026",
+    featured: false,
+    tech: ["React.js", "React Native", "Node.js", "MongoDB"],
+    accent: "#43e97b",
+    liveUrl: undefined,
+    metrics: [
+      { label: "Platforms", value: "Web + Mobile" },
+      { label: "Stack", value: "MERN + RN" },
+      { label: "Domain", value: "Community mgmt" },
+    ],
+    features: [
+      "Society operations management",
+      "Resident-facing mobile app",
+      "Web admin platform",
+      "Shared MERN backend",
+    ],
+    challenge:
+      "Coordinating residents, admins and society operations in one connected system.",
+    solution:
+      "Developing a MERN + React Native platform that links a resident mobile app with a web admin dashboard.",
+  },
+  {
+    slug: "ugive",
+    title: "Ugive",
+    category: "Web",
+    tagline: "Giving & community platform (web + mobile)",
+    description:
+      "A giving and community platform available on web and mobile, built with the MERN stack and React Native. Currently in active development.",
+    client: "Charity · Australia",
+    year: "2026",
+    featured: false,
+    tech: ["React.js", "React Native", "Node.js", "MongoDB"],
+    accent: "#ff6584",
+    liveUrl: "http://ugive.com.au/",
+    metrics: [
+      { label: "Platforms", value: "Web + Mobile" },
+      { label: "Stack", value: "MERN + RN" },
+      { label: "Domain", value: "Giving" },
+    ],
+    features: [
+      "Web & mobile apps",
+      "Community engagement features",
+      "Shared MERN backend",
+      "Built for reach",
+    ],
+    challenge:
+      "Making giving simple and engaging across both web and mobile audiences.",
+    solution:
+      "Building a cross-platform MERN + React Native experience with a unified backend.",
+  },
+  {
+    slug: "viteride",
+    title: "ViteRide",
+    category: "Mobile",
+    tagline: "Ride & mobility mobile app",
+    description:
+      "A mobility / ride application built with React Native on a Node.js and MongoDB backend. Currently in active development.",
+    client: "Mobility",
+    year: "2026",
+    featured: false,
+    tech: ["React Native", "Node.js", "MongoDB"],
+    accent: "#9c88ff",
+    liveUrl: undefined,
+    metrics: [
+      { label: "Platform", value: "Mobile" },
+      { label: "Stack", value: "RN + Node" },
+      { label: "Domain", value: "Mobility" },
+    ],
+    features: [
+      "Native mobile ride experience",
+      "Node.js + MongoDB backend",
+      "Built for real-time use",
+      "Scalable architecture",
+    ],
+    challenge:
+      "Delivering a responsive, real-time ride experience on mobile.",
+    solution:
+      "Developing a React Native app backed by a Node.js/MongoDB service designed for live, location-driven flows.",
+  },
+  {
+    slug: "switchedon-store",
+    title: "SwitchedOn Store",
+    category: "SaaS",
+    tagline: "Store sales & commission dashboard",
+    description:
+      "A store management dashboard for sales performance, dynamic commission calculation, and fortnightly target tracking with reporting and performance monitoring across multiple locations. Currently in development.",
+    client: "Retail · Australia",
+    year: "2026",
+    featured: false,
+    tech: ["React.js", "Node.js", "MongoDB", "Express.js"],
+    accent: "#f59e0b",
+    liveUrl: undefined,
+    metrics: [
+      { label: "Engine", value: "Commissions" },
+      { label: "Targets", value: "Fortnightly" },
+      { label: "Scope", value: "Multi-store" },
+    ],
+    features: [
+      "Sales performance tracking",
+      "Dynamic commission calculation",
+      "Fortnightly target management",
+      "Multi-location reporting",
+    ],
+    challenge:
+      "Replicating a robust commission and target system for a new retail brand.",
+    solution:
+      "Building a configurable MERN dashboard reusing a proven commission engine across store locations.",
+  },
+  {
+    slug: "cyberpulse-2",
+    title: "CyberPulse 2.0",
+    category: "SaaS",
+    tagline: "Next-gen in-house platform",
+    description:
+      "The next generation of the in-house CyberPulse product, spanning web and mobile with the MERN stack and React Native. Currently in development.",
+    client: "Cyberbells · In-House",
+    year: "2026",
+    featured: false,
+    tech: ["React.js", "React Native", "Node.js", "MongoDB"],
+    accent: "#7c5cff",
+    liveUrl: undefined,
+    metrics: [
+      { label: "Type", value: "In-House" },
+      { label: "Platforms", value: "Web + Mobile" },
+      { label: "Edition", value: "2.0" },
+    ],
+    features: [
+      "Rebuilt web platform",
+      "Companion mobile app",
+      "Shared MERN backend",
+      "Improved architecture",
+    ],
+    challenge:
+      "Evolving the original CyberPulse into a more scalable, refined product.",
+    solution:
+      "Re-architecting the platform across web and mobile with a cleaner MERN + React Native foundation.",
+  },
+  {
+    slug: "flock-customer-app",
+    title: "Flock — Customer App",
+    category: "Mobile",
+    tagline: "Customer-facing mobile application",
+    description:
+      "A customer-facing mobile application built with React Native, delivered end-to-end.",
+    client: "Consumer",
+    year: "2024",
+    featured: false,
+    tech: ["React Native"],
+    accent: "#22d3ee",
+    liveUrl: undefined,
+    metrics: [
+      { label: "Platform", value: "Mobile" },
+      { label: "Stack", value: "React Native" },
+      { label: "Audience", value: "Customers" },
+    ],
+    features: [
+      "Native customer mobile app",
+      "Smooth, responsive UI",
+      "Cross-platform build",
+      "End-to-end delivery",
+    ],
+    challenge:
+      "Delivering a polished customer mobile experience on a single codebase.",
+    solution:
+      "Built the customer app in React Native with a focus on smooth navigation and a clean UX.",
+  },
+  {
+    slug: "ethionest",
+    title: "EthioNest",
+    category: "Web",
+    tagline: "Web & mobile platform (MERN + React Native)",
+    description:
+      "A web and mobile platform built with the MERN stack and React Native, delivered as a full-stack product.",
+    client: "Real Estate",
+    year: "2025",
+    featured: false,
+    tech: ["React.js", "React Native", "Node.js", "MongoDB"],
+    accent: "#43e97b",
+    liveUrl: undefined,
+    metrics: [
+      { label: "Platforms", value: "Web + Mobile" },
+      { label: "Stack", value: "MERN + RN" },
+      { label: "Type", value: "Full-stack" },
+    ],
+    features: [
+      "Web & mobile experience",
+      "Shared MERN backend",
+      "Responsive interfaces",
+      "Scalable foundation",
+    ],
+    challenge:
+      "Shipping a consistent product across web and mobile from one backend.",
+    solution:
+      "Built a MERN + React Native platform sharing a single API across both clients.",
   },
 ];
 
@@ -200,5 +450,5 @@ export const projectCategories: ("All" | Project["category"])[] = [
   "Web",
   "Mobile",
   "SaaS",
-  "Backend",
+  "AI",
 ];

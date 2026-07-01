@@ -1,6 +1,6 @@
 import type { LucideIcon } from "lucide-react";
 
-export type ProjectCategory = "Web" | "Mobile" | "SaaS" | "Backend";
+export type ProjectCategory = "Web" | "Mobile" | "SaaS" | "AI";
 
 export interface ProjectMetric {
   label: string;
@@ -15,7 +15,6 @@ export interface Project {
   description: string;
   client: string;
   year: string;
-  timeline: string;
   featured: boolean;
   tech: string[];
   accent: string;
